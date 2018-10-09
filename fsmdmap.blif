@@ -1,0 +1,217 @@
+.model MOTORE
+.inputs INIT RESET RPMX12 RPMX11 RPMX10 RPMX9 RPMX8 RPMX7 RPMX6 RPMX5 RPMX4 \
+RPMX3 RPMX2 RPMX1 RPMX0
+.outputs MOD1 MOD0 ALM NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 NUMB0
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.latch    [5041] LatchOut_v5 re NIL 0
+.latch    [5054] LatchOut_v6 re NIL 0
+.latch    [5087] REG7 re NIL 0
+.latch    [5082] REG6 re NIL 0
+.latch    [5091] REG5 re NIL 0
+.latch    [5103] REG4 re NIL 0
+.latch    [5099] REG3 re NIL 0
+.latch    [5095] REG2 re NIL 0
+.latch    [4703] REG1 re NIL 0
+.latch    [5106] REG0 re NIL 0
+.names RPMX8 RPMX10 RPMX9 [4878]
+0-- 1
+-0- 1
+--0 1
+.names RPMX5 RPMX4 [4661]
+00 1
+.names RPMX7 [4880]
+0 1
+.names RPMX6 [4881]
+0 1
+.names [4878] [4661] [4880] [4881] [4700]
+0000 1
+.names RPMX12 RPMX11 [4700] [4885]
+1-- 1
+-1- 1
+--1 1
+.names [4885] INIT [4886]
+0- 1
+-0 1
+.names [4886] MOD1
+0 1
+.names MOD1 [5041]
+1 1
+.names RPMX10 RPMX9 RPMX8 RPMX7 [4845]
+0000 1
+.names RPMX2 RPMX4 RPMX3 [4853]
+000 1
+.names RPMX1 RPMX0 [4848]
+00 1
+.names [4853] [4848] [4892]
+0- 1
+-0 1
+.names RPMX6 RPMX5 [4885] [4892] [4838]
+0000 1
+.names [4845] [4838] [4902]
+0- 1
+-0 1
+.names [4885] [4902] [4694]
+01 1
+.names RPMX9 RPMX11 RPMX10 [4888]
+0-- 1
+-0- 1
+--0 1
+.names RPMX6 [4892] RPMX5 [4662]
+00- 1
+0-0 1
+.names RPMX8 [4874]
+0 1
+.names [4888] [4662] [4874] [4880] [4696]
+0000 1
+.names RPMX12 [4696] [4895]
+1- 1
+-1 1
+.names INIT [4694] [4895] [4903]
+0-- 1
+-00 1
+.names [4903] MOD0
+0 1
+.names MOD0 [5054]
+1 1
+.names INIT [4872]
+0 1
+.names [4902] LatchOut_v5 [4872] [4690]
+000 1
+.names LatchOut_v5 [4905]
+0 1
+.names [4886] [4905] [4791]
+00 1
+.names [4690] [4903] [4791] [4664]
+00- 1
+0-0 1
+.names [4905] LatchOut_v6 [4908]
+0- 1
+-0 1
+.names LatchOut_v6 LatchOut_v5 [4909]
+0- 1
+-0 1
+.names [4895] [4908] [4886] [4909] [5143]
+00-- 1
+--00 1
+.names [5143] [5144]
+0 1
+.names LatchOut_v6 [4664] [5144] [4903] [5059]
+00-- 1
+--00 1
+.names RESET [5059] [4910]
+1- 1
+-0 1
+.names REG5 [4913]
+0 1
+.names REG1 REG0 [4920]
+0- 1
+-0 1
+.names [4920] [5121]
+0 1
+.names REG4 REG3 REG2 [5121] [4922]
+0--- 1
+-0-- 1
+--0- 1
+---0 1
+.names [4913] [4922] [4640]
+00 1
+.names REG6 [4640] [4767]
+01 1
+10 1
+.names [4910] [4767] [5081]
+1- 1
+-0 1
+.names [5081] REG6 [4641]
+11 1
+.names REG7 [4641] [4757]
+01 1
+10 1
+.names [4910] [4757] [5086]
+1- 1
+-0 1
+.names [5086] NUMB7
+0 1
+.names NUMB7 [5087]
+1 1
+.names [5081] NUMB6
+0 1
+.names NUMB6 [5082]
+1 1
+.names [4922] REG5 [4923]
+1- 1
+-0 1
+.names [4922] [5077]
+0 1
+.names [4923] REG5 [5077] [4927]
+0-- 1
+-00 1
+.names [4910] [4927] [5090]
+1- 1
+-1 1
+.names [5090] NUMB5
+0 1
+.names NUMB5 [5091]
+1 1
+.names REG2 [4917]
+0 1
+.names [4917] [4920] REG2 [5121] [4928]
+00-- 1
+--00 1
+.names [4910] [4928] [5094]
+1- 1
+-1 1
+.names [5094] REG2 [4642]
+11 1
+.names REG3 [4642] [4733]
+01 1
+10 1
+.names [4910] [4733] [5098]
+1- 1
+-0 1
+.names REG4 [5098] REG3 [4670]
+00- 1
+0-0 1
+.names [4910] [5077] [4670] [5102]
+1-- 1
+-1- 1
+--1 1
+.names [5102] NUMB4
+0 1
+.names NUMB4 [5103]
+1 1
+.names [5098] NUMB3
+0 1
+.names NUMB3 [5099]
+1 1
+.names [5094] NUMB2
+0 1
+.names NUMB2 [5095]
+1 1
+.names REG0 [4910] [4932]
+1- 1
+-1 1
+.names REG1 [4910] [4719]
+00 1
+.names [4932] [4719] [5149]
+0- 1
+-0 1
+.names REG1 [4918]
+0 1
+.names [5149] [4918] [4932] NUMB1
+0-- 1
+-00 1
+.names NUMB1 [4703]
+1 1
+.names [4932] NUMB0
+0 1
+.names NUMB0 [5106]
+1 1
+.names [5086] [5081] [5090] [5102] [4667]
+1111 1
+.names [4667] [4909] ALM
+00 1
+.end

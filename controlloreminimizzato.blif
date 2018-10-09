@@ -1,0 +1,69 @@
+#########################################################################
+######################       CONTROLLORE       ##########################
+#########################################################################
+
+.model CONTROLLORE
+.inputs INIT RESET TS SA1 SA0
+.outputs START MOD1 MOD0 ALM
+.latch    MOD1 LatchOut_v5   0
+.latch    MOD0 LatchOut_v6   0
+
+
+###############       TABELLA DELLE TRANSIZIONI       ###################
+.start_kiss
+.i 5
+.o 4
+.p 25
+.s 4
+.r SPENTO
+1--00 OPT SPENTO 0000
+0---- OPT SPENTO 0000
+1--01 OPT SG 0010
+10-10 OPT OPT 1100
+11-10 OPT OPT 0100
+1--11 OPT FG 0110
+1--10 SPENTO OPT 0100
+10-00 SPENTO SPENTO 1000
+11-00 SPENTO SPENTO 0000
+0---- SPENTO SPENTO 0000
+1--11 SPENTO FG 0110
+1--01 SPENTO SG 0010
+11-01 SG SG 0010
+10-01 SG SG 1010
+1--00 SG SPENTO 0000
+0---- SG SPENTO 0000
+1--11 SG FG 0110
+1--10 SG OPT 0100
+1--10 FG OPT 0100
+1--00 FG SPENTO 0000
+0---- FG SPENTO 0000
+10011 FG FG 1110
+10111 FG FG 1111
+1--01 FG SG 0010
+11-11 FG FG 0110
+.end_kiss
+#########################################################################
+
+
+## logica combinatoria per la funzione di stato prossimo e uscita  ######
+## calcolata da SIS usando il comando “stg_to_network” per conservare  ##
+## la codifica degli stati fatta manualmente  ###########################
+
+.latch_order LatchOut_v5 LatchOut_v6
+.code OPT 10
+.code SPENTO 00
+.code SG 01
+.code FG 11
+.names INIT RESET SA1 SA0 LatchOut_v5 LatchOut_v6 MOD1 MOD0 START
+-0-1111- 1
+-0-0101- 1
+-00-01-1 1
+100000-- 1
+.names INIT SA1 MOD1
+11 1
+.names INIT SA0 MOD0
+11 1
+.names RESET TS LatchOut_v5 LatchOut_v6 MOD1 MOD0 ALM
+011111 1
+.end
+#########################################################################

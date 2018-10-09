@@ -1,0 +1,78 @@
+.model ELABORATORE
+.inputs START RPM12 RPM11 RPM10 RPM9 RPM8 RPM7 RPM6 RPM5 RPM4 RPM3 RPM2 RPM1 \
+RPM0
+.outputs NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 NUMB0 TS SA1 SA0
+.latch    NUMB7 REG7 re NIL 0
+.latch    NUMB6 REG6 re NIL 0
+.latch    NUMB5 REG5 re NIL 0
+.latch    NUMB4 REG4 re NIL 0
+.latch    NUMB3 REG3 re NIL 0
+.latch    NUMB2 REG2 re NIL 0
+.latch    NUMB1 REG1 re NIL 0
+.latch    NUMB0 REG0 re NIL 0
+.names START NUMB6 REG7 REG6 NUMB7
+-11- 1
+1-10 1
+1001 1
+.names START REG6 [991] NUMB6
+111 1
+100 1
+.names START REG5 C4 NUMB5
+101 1
+110 1
+.names START C4 [997] NUMB4
+101 1
+.names START NUMB2 REG3 REG2 NUMB3
+-11- 1
+1-10 1
+1001 1
+.names START NUMB0 REG2 REG1 REG0 NUMB2
+-11-- 1
+1-10- 1
+1-011 1
+.names START NUMB0 REG1 REG0 NUMB1
+-11- 1
+1-01 1
+.names START REG0 NUMB0
+10 1
+.names NUMB7 NUMB6 NUMB5 NUMB4 TS
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names RPM12 RPM11 RPM10 RPM9 RPM8 RPM7 RPM6 RPM5 RPM4 RPM3 RPM2 RPM1 RPM0 SA1 \
+[995] [996] SA0
+1--------------- 1
+--1----------0-- 1
+---1---------0-- 1
+----1--------0-- 1
+-----1-------0-- 1
+------1------0-- 1
+-------1-----0-- 1
+--------1------1 1
+---------1-----1 1
+----------1----1 1
+-----------1---1 1
+------------1--1 1
+-1----1-------1- 1
+.names REG4 REG3 REG2 REG1 REG0 C4
+11111 1
+.names RPM12 RPM11 RPM6 [995] [998] SA1
+1---- 1
+-1--- 1
+--111 1
+.names REG5 C4 [991]
+0- 1
+-0 1
+.names RPM10 RPM9 RPM8 RPM7 [995]
+1111 1
+.names RPM11 RPM5 SA1 [995] [996]
+--0- 1
+11-1 1
+.names NUMB3 REG4 REG3 [997]
+-1- 1
+0-1 1
+.names RPM5 RPM4 [998]
+1- 1
+-1 1
+.end

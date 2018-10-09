@@ -1,0 +1,22 @@
+#########################################################################
+#################       CONTROLLO GIRI MOTORE       #####################
+#########################################################################
+.model MOTORE
+.inputs INIT RESET RPMX12 RPMX11 RPMX10 RPMX9 RPMX8 RPMX7 RPMX6 RPMX5 RPMX4 RPMX3 RPMX2 RPMX1 RPMX0
+.outputs MOD1 MOD0 ALM NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 NUMB0
+
+
+# istanziazione dell’unita' di elaborazione (datapath)
+.subckt ELABORATORE START=START RPM12=RPMX12 RPM11=RPMX11 RPM10=RPMX10 RPM9=RPMX9 RPM8=RPMX8 RPM7=RPMX7 RPM6=RPMX6 RPM5=RPMX5 RPM4=RPMX4 RPM3=RPMX3 RPM2=RPMX2 RPM1=RPMX1 RPM0=RPMX0 NUMB7=NUMB7 NUMB6=NUMB6 NUMB5=NUMB5 NUMB4=NUMB4 NUMB3=NUMB3 NUMB2=NUMB2 NUMB1=NUMB1 NUMB0=NUMB0 TS=TS SA1=SA1 SA0=SA0
+
+
+# istanziazione dell’unita' di controllo
+.subckt CONTROLLORE INIT=INIT RESET=RESET TS=TS SA1=SA1 SA0=SA0 START=START MOD1=MOD1 MOD0=MOD0 ALM=ALM
+
+
+#########################################################################
+#########################   SOURCE MODULI   #############################
+#########################################################################
+.search controllore_minimizzato.blif
+.search elaboratore.blif
+.end

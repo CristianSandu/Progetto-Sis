@@ -1,0 +1,114 @@
+###################################################
+################ MAGGIORE A 13 BIT ################
+###################################################
+.model MAGGIORE13
+.inputs A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0
+.outputs AmaggioreB
+.subckt xor A=A12 B=B12 O=X12
+.subckt xor A=A11 B=B11 O=X11
+.subckt xor A=A10 B=B10 O=X10
+.subckt xor A=A9 B=B9 O=X9
+.subckt xor A=A8 B=B8 O=X8
+.subckt xor A=A7 B=B7 O=X7
+.subckt xor A=A6 B=B6 O=X6
+.subckt xor A=A5 B=B5 O=X5
+.subckt xor A=A4 B=B4 O=X4
+.subckt xor A=A3 B=B3 O=X3
+.subckt xor A=A2 B=B2 O=X2
+.subckt xor A=A1 B=B1 O=X1
+.subckt xor A=A0 B=B0 O=X0
+.names A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 X12 X11 X10 X9 X8 X7 X6 X5 X4 X3 X2 X1 X0 AmaggioreB
+1------------1------------ 1
+-1-----------01----------- 1
+--1----------001---------- 1
+---1---------0001--------- 1
+----1--------00001-------- 1
+-----1-------000001------- 1
+------1------0000001------ 1
+-------1-----00000001----- 1
+--------1----000000001---- 1
+---------1---0000000001--- 1
+----------1--00000000001-- 1
+-----------1-000000000001- 1
+------------10000000000001 1
+.end
+##################################################
+################ MAGGIORE A 8 BIT ################
+##################################################
+.model MAGGIORE8
+.inputs A7 A6 A5 A4 A3 A2 A1 A0 B7 B6 B5 B4 B3 B2 B1 B0
+.outputs AmaggioreB
+.subckt xor A=A7 B=B7 O=X7
+.subckt xor A=A6 B=B6 O=X6
+.subckt xor A=A5 B=B5 O=X5
+.subckt xor A=A4 B=B4 O=X4
+.subckt xor A=A3 B=B3 O=X3
+.subckt xor A=A2 B=B2 O=X2
+.subckt xor A=A1 B=B1 O=X1
+.subckt xor A=A0 B=B0 O=X0
+.names A7 A6 A5 A4 A3 A2 A1 A0 X7 X6 X5 X4 X3 X2 X1 X0 AmaggioreB
+1-------1------- 1
+-1------01------ 1
+--1-----001----- 1
+---1----0001---- 1
+----1---00001--- 1
+-----1--000001-- 1
+------1-0000001- 1
+-------100000001 1
+.end
+
+###################################################
+##################### MINORE ######################
+###################################################
+.model MINORE
+.inputs C12 C11 C10 C9 C8 C7 C6 C5 C4 C3 C2 C1 C0 D12 D11 D10 D9 D8 D7 D6 D5 D4 D3 D2 D1 D0
+.outputs CminoreD
+.subckt MAGGIORE13 A12=C12 A11=C11 A10=C10 A9=C9 A8=C8 A7=C7 A6=C6 A5=C5 A4=C4 A3=C3 A2=C2 A1=C1 A0=C0 B12=D12 B11=D11 B10=D10 B9=D9 B8=D8 B7=D7 B6=D6 B5=D5 B4=D4 B3=D3 B2=D2 B1=D1 B0=D0 AmaggioreB=z
+.names z CminoreD
+0 1
+.end
+
+###################################################
+################ UGUALE A 13 BIT ##################
+###################################################
+.model UGUALE13
+.inputs A12 A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B12 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0
+.outputs O
+.subckt xnor A=A12 B=B12 O=X12
+.subckt xnor A=A11 B=B11 O=X11
+.subckt xnor A=A10 B=B10 O=X10
+.subckt xnor A=A9 B=B9 O=X9
+.subckt xnor A=A8 B=B8 O=X8
+.subckt xnor A=A7 B=B7 O=X7
+.subckt xnor A=A6 B=B6 O=X6
+.subckt xnor A=A5 B=B5 O=X5
+.subckt xnor A=A4 B=B4 O=X4
+.subckt xnor A=A3 B=B3 O=X3
+.subckt xnor A=A2 B=B2 O=X2
+.subckt xnor A=A1 B=B1 O=X1
+.subckt xnor A=A0 B=B0 O=X0
+.names X12 X11 X10 X9 X8 X7 X6 X5 X4 X3 X2 X1 X0 O
+1111111111111 1
+.end
+
+###################################################
+################ XNOR  ############################
+###################################################
+.model xnor
+.inputs A B
+.outputs O
+.names A B O
+00 1
+11 1
+.end
+
+###################################################
+################# XOR  ############################
+###################################################
+.model xor
+.inputs A B
+.outputs O
+.names A B O
+01 1
+10 1
+.end

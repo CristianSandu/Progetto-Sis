@@ -1,0 +1,209 @@
+.model MOTORE
+.inputs INIT RESET RPMX12 RPMX11 RPMX10 RPMX9 RPMX8 RPMX7 RPMX6 RPMX5 RPMX4 \
+RPMX3 RPMX2 RPMX1 RPMX0
+.outputs MOD1 MOD0 ALM NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 NUMB0
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.latch    [10645] LatchOut_v5 re NIL 0
+.latch    [10677] LatchOut_v6 re NIL 0
+.latch    [10314] REG7 re NIL 0
+.latch    [10315] REG6 re NIL 0
+.latch    [10313] REG5 re NIL 0
+.latch    S4 REG4 re NIL 0
+.latch    [10311] REG3 re NIL 0
+.latch    [10312] REG2 re NIL 0
+.latch    [10316] REG1 re NIL 0
+.latch    [10317] REG0 re NIL 0
+.names RPMX7 [10492]
+0 1
+.names RPMX6 [10493]
+0 1
+.names RPMX5 RPMX4 [9027]
+00 1
+.names RPMX8 RPMX10 RPMX9 [10500]
+0-- 1
+-0- 1
+--0 1
+.names [10492] [10493] [9027] [10500] [9060]
+0000 1
+.names RPMX11 RPMX12 [9060] [10503]
+1-- 1
+-1- 1
+--1 1
+.names [10503] INIT [10504]
+0- 1
+-0 1
+.names [10504] MOD1
+0 1
+.names MOD1 [10645]
+1 1
+.names RPMX10 RPMX9 RPMX8 RPMX7 [9215]
+0000 1
+.names RPMX2 RPMX4 RPMX3 [9223]
+000 1
+.names RPMX1 RPMX0 [9218]
+00 1
+.names [9223] [9218] [10512]
+0- 1
+-0 1
+.names RPMX6 RPMX5 [10503] [10512] [9208]
+0000 1
+.names [9215] [9208] [10515]
+0- 1
+-0 1
+.names [10503] [10515] [9054]
+01 1
+.names RPMX8 [10496]
+0 1
+.names RPMX6 [10512] RPMX5 [9028]
+00- 1
+0-0 1
+.names RPMX11 RPMX10 RPMX9 [10518]
+0-- 1
+-0- 1
+--0 1
+.names [10492] [10496] [9028] [10518] [9056]
+0000 1
+.names RPMX12 [9056] [10520]
+1- 1
+-1 1
+.names INIT [9054] [10520] [10521]
+0-- 1
+-00 1
+.names [10521] MOD0
+0 1
+.names MOD0 [10677]
+1 1
+.names INIT [10490]
+0 1
+.names [10515] LatchOut_v5 [10490] [9050]
+000 1
+.names LatchOut_v5 [10524]
+0 1
+.names [10504] [10524] [9175]
+00 1
+.names [9050] [10521] [9175] [9030]
+00- 1
+0-0 1
+.names [10524] LatchOut_v6 [10527]
+0- 1
+-0 1
+.names LatchOut_v6 LatchOut_v5 [10528]
+0- 1
+-0 1
+.names [10520] [10527] [10504] [10528] [10688]
+00-- 1
+--00 1
+.names [10688] [10689]
+0 1
+.names LatchOut_v6 [9030] [10689] [10521] [10696]
+00-- 1
+--00 1
+.names RESET [10696] [10529]
+1- 1
+-0 1
+.names [10529] REG7 [10530]
+1- 1
+-0 1
+.names [10530] NUMB7
+0 1
+.names [10529] REG6 [10532]
+1- 1
+-0 1
+.names [10532] NUMB6
+0 1
+.names [10529] REG1 [10534]
+1- 1
+-0 1
+.names [10534] NUMB1
+0 1
+.names [10529] REG0 [10894]
+1- 1
+-0 1
+.names [10894] NUMB0
+0 1
+.names NUMB1 [10894] NUMB0 [10534] [10893]
+00-- 1
+--00 1
+.names [10529] REG4 [10537]
+1- 1
+-0 1
+.names [10537] NUMB1 [10538]
+1- 1
+-0 1
+.names [10529] REG3 [10541]
+1- 1
+-0 1
+.names [10529] REG2 [10543]
+1- 1
+-0 1
+.names [10893] [10538] [10541] [10543] [10545]
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names [10529] REG5 [10547]
+1- 1
+-0 1
+.names [10545] [10547] [9005]
+00 1
+.names [10532] NUMB6 [9005] [10888]
+1-1 1
+-10 1
+.names [10888] NUMB6 [9006]
+01 1
+.names [10530] NUMB7 [9006] [10887]
+1-1 1
+-10 1
+.names [10887] [10314]
+1 1
+.names [10888] [10315]
+1 1
+.names [10545] [10766]
+0 1
+.names [10547] NUMB5
+0 1
+.names [10766] [10547] NUMB5 [10545] [10889]
+00-- 1
+--00 1
+.names [10889] [10313]
+1 1
+.names [10541] NUMB3
+0 1
+.names [10543] NUMB2
+0 1
+.names NUMB0 NUMB1 [9007]
+11 1
+.names [10543] NUMB2 [9007] [10892]
+1-1 1
+-10 1
+.names [10892] NUMB2 [9008]
+01 1
+.names [10541] NUMB3 [9008] [10891]
+1-1 1
+-10 1
+.names [10537] [10891] [10541] [10796]
+0-- 1
+-00 1
+.names [10796] [10797]
+0 1
+.names [10545] [10797] S4
+10 1
+.names [10891] [10311]
+1 1
+.names [10892] [10312]
+1 1
+.names [10893] [10316]
+1 1
+.names [10894] [10317]
+1 1
+.names [10530] [10532] [10537] [10547] [9033]
+1111 1
+.names [9033] [10528] ALM
+00 1
+.names [10537] NUMB4
+0 1
+.end

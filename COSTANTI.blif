@@ -1,0 +1,164 @@
+###################################################
+############# COSTANTE 4000 A 13 BIT ##############
+###################################################
+.model QUATTROMILA13
+.outputs O12 O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
+.names O12
+.names O11
+1
+.names O10
+1
+.names O9
+1
+.names O8
+1
+.names O7
+1
+.names O6
+.names O5
+1
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+.end
+
+###################################################
+############## COSTANTE 1999 A 13 BIT #############
+###################################################
+.model DUEMILA13
+.outputs O12 O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
+.names O12
+.names O11
+.names O10
+1
+.names O9
+1
+.names O8
+1
+.names O7
+1
+.names O6
+1
+.names O5
+.names O4
+.names O3
+1
+.names O2
+1
+.names O1
+1
+.names O0
+1
+.end
+
+###################################################
+############## COSTANTE 0 A 13 BIT #############
+###################################################
+.model ZERO13
+.outputs O12 O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
+.names O12
+.names O11
+.names O10
+.names O9
+.names O8
+.names O7
+.names O6
+.names O5
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+.end
+
+###################################################
+############### COSTANTE 15 A 8 BIT ###############
+###################################################
+.model QUINDICI8
+.outputs  O7 O6 O5 O4 O3 O2 O1 O0
+.names O7
+.names O6
+.names O5
+.names O4
+.names O3
+1
+.names O2
+1
+.names O1
+1
+.names O0
+1
+.end
+
+###################################################
+############### COSTANTE 1 A 8 BIT ################
+###################################################
+.model UNO8
+.outputs  O7 O6 O5 O4 O3 O2 O1 O0
+.names O7
+.names O6
+.names O5
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+1
+.end
+
+###################################################
+############### COSTANTE 0 A 8 BIT ################
+###################################################
+.model ZERO8
+.outputs  O7 O6 O5 O4 O3 O2 O1 O0
+.names O7
+.names O6
+.names O5
+.names O4
+.names O3
+.names O2
+.names O1
+.names O0
+.end
+
+###################################################
+############### COSTANTE 00 A 2 BIT ################
+###################################################
+.model ZEROZERO
+.outputs O1 O0
+.names O1
+.names O0
+.end
+
+###################################################
+############### COSTANTE 01 A 2 BIT ################
+###################################################
+.model ZEROUNO
+.outputs O1 O0
+.names O1
+.names O0
+1
+.end
+
+###################################################
+############### COSTANTE 10 A 2 BIT ################
+###################################################
+.model UNOZERO
+.outputs O1 O0
+.names O1
+1
+.names O0
+.end
+
+###################################################
+############### COSTANTE 11 A 2 BIT ################
+###################################################
+.model UNOUNO
+.outputs O1 O0
+.names O1
+1
+.names O0
+1
+.end

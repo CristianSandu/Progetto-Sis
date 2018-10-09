@@ -1,0 +1,93 @@
+.model ELABORATORE
+.inputs START RPM12 RPM11 RPM10 RPM9 RPM8 RPM7 RPM6 RPM5 RPM4 RPM3 RPM2 RPM1 RPM0
+.outputs NUMB7 NUMB6 NUMB5 NUMB4 NUMB3 NUMB2 NUMB1 NUMB0 TS SA1 SA0
+
+#########################################################################
+##############       DEFINIZIONE DELLE COSTANTI       ###################
+#########################################################################
+
+.names ZERO ## COSTANTE ZERO 
+
+.subckt ZERO8 O7=Z07 O6=Z06 O5=Z05 O4=Z04 O3=Z03 O2=Z02 O1=Z01 O0=Z00
+.subckt UNO8 O7=U07 O6=U06 O5=U05 O4=U04 O3=U03 O2=U02 O1=U01 O0=U00
+.subckt QUINDICI8 O7=QI7 O6=QI6 O5=QI5 O4=QI4 O3=QI3 O2=QI2 O1=QI1 O0=QI0
+.subckt DUEMILA13 O12=D12 O11=D11 O10=D10 O9=D9 O8=D8 O7=D7 O6=D6 O5=D5 O4=D4 O3=D3 O2=D2 O1=D1 O0=D0
+.subckt QUATTROMILA13 O12=QA12 O11=QA11 O10=QA10 O9=QA9 O8=QA8 O7=QA7 O6=QA6 O5=QA5 O4=QA4 O3=QA3 O2=QA2 O1=QA1 O0=QA0
+.subckt ZERO13 O12=Z1312 O11=Z1311 O10=Z1310 O9=Z139 O8=Z138 O7=Z137 O6=Z136 O5=Z135 O4=Z134 O3=Z133 O2=Z132 O1=Z131 O0=Z130
+.subckt ZEROZERO O1=ZZ1 O0=ZZ0
+.subckt ZEROUNO O1=ZU1 O0=ZU0
+.subckt UNOZERO O1=UZ1 O0=UZ0
+.subckt UNOUNO O1=UU1 O0=UU0
+#########################################################################
+
+
+
+#########################################################################
+#######################       CONTATORE       ###########################
+#########################################################################
+
+# ISTANZIAZIONE DEL MULTIPLEXER CHE SELEZIONA TRA 0 E IL VALORE CORRENTE
+# DEL CONTATORE #########################################################
+.subckt MUX8 SEL=START A7=REG7 A6=REG6 A5=REG5 A4=REG4 A3=REG3 A2=REG2 A1=REG1 A0=REG0 B7=Z07 B6=Z06 B5=Z05 B4=Z04 B3=Z03 B2=Z02 B1=Z01 B0=Z00 O7=NUMB7 O6=NUMB6 O5=NUMB5 O4=NUMB4 O3=NUMB3 O2=NUMB2 O1=NUMB1 O0=NUMB0
+#########################################################################
+# ISTANZIAZIONE DEL REGISTRO CHE MEMORIZZA IL VALORE DEL CONTATORE ######
+.subckt REGISTRO8 A7=S7 A6=S6 A5=S5 A4=S4 A3=S3 A2=S2 A1=S1 A0=S0 O7=REG7 O6=REG6 O5=REG5 O4=REG4 O3=REG3 O2=REG2 O1=REG1 O0=REG0
+#########################################################################
+
+# ISTANZIAZIONE DEL SOMMATORE CHE INCREMENTA DI 1 IL VALORE DEL REGISTRO
+# AD OGNI CICLO DI CLOCK ################################################
+.subckt SOMMATORE8 A7=NUMB7 A6=NUMB6 A5=NUMB5 A4=NUMB4 A3=NUMB3 A2=NUMB2 A1=NUMB1 A0=NUMB0 B7=U07 B6=U06 B5=U05 B4=U04 B3=U03 B2=U02 B1=U01 B0=U00 CIN=ZERO O7=S7 O6=S6 O5=S5 O4=S4 O3=S3 O2=S2 O1=S1 O0=S0 COUT=COUT
+#########################################################################
+
+# ISTANZIAZIONE DEL COMPARATORE CHE VERIFICA SE IL VALORE DEL REGISTRO E'
+# MAGGIORE DI 15 ########################################################
+.subckt MAGGIORE8 A7=NUMB7 A6=NUMB6 A5=NUMB5 A4=NUMB4 A3=NUMB3 A2=NUMB2 A1=NUMB1 A0=NUMB0 B7=QI7 B6=QI6 B5=QI5 B4=QI4 B3=QI3 B2=QI2 B1=QI1 B0=QI0 AmaggioreB=TS
+#########################################################################
+
+
+
+#########################################################################
+#######################     STATO SOGLIA      ###########################
+#########################################################################
+
+# ISTANZIAZIONE DEL COMPARATORE CHE VERIFICA SE IL VALORE DEGLI RPM SONO
+# MINORE DI 2000 ########################################################
+.subckt MINORE C12=RPM12 C11=RPM11 C10=RPM10 C9=RPM9 C8=RPM8 C7=RPM7 C6=RPM6 C5=RPM5 C4=RPM4 C3=RPM3 C2=RPM2 C1=RPM1 C0=RPM0 D12=D12 D11=D11 D10=D10 D9=D9 D8=D8 D7=D7 D6=D6 D5=D5 D4=D4 D3=D3 D2=D2 D1=D1 D0=D0 CminoreD=MIN
+#########################################################################
+
+# ISTANZIAZIONE DEL MULTIPLEXER CHE SELEZIONA TRA IL VALORE 01 E 10 SE
+# VERIFICATA LA CONDIZIONE DEL MINORE DI 2000 ###########################
+.subckt MUX2  SEL=MIN A1=ZU1 A0=ZU0 B1=UZ1 B0=UZ0 O1=MIN1 O0=MIN0
+#########################################################################
+
+# ISTANZIAZIONE DEL COMPARATORE CHE VERIFICA SE IL VALORE DEGLI RPM SONO
+# MAGGIORI DI 4000 ######################################################
+.subckt MAGGIORE13 A12=RPM12 A11=RPM11 A10=RPM10 A9=RPM9 A8=RPM8 A7=RPM7 A6=RPM6 A5=RPM5 A4=RPM4 A3=RPM3 A2=RPM2 A1=RPM1 A0=RPM0 B12=QA12 B11=QA11 B10=QA10 B9=QA9 B8=QA8 B7=QA7 B6=QA6 B5=QA5 B4=QA4 B3=QA3 B2=QA2 B1=QA1 B0=QA0 AmaggioreB=MAX
+#########################################################################
+
+# ISTANZIAZIONE DEL MULTIPLEXER CHE SELEZIONA TRA IL VALORE DEL MULTIPLEXER
+# A ESSO SUPERIORE E 11, SE VERIFICATA LA CONDIZIONE DEL MAGGIORE DI 4000
+.subckt MUX2 SEL=MAX A1=UU1 A0=UU0 B1=MIN1 B0=MIN0 O1=MAX1 O0=MAX0
+#########################################################################
+
+# ISTANZIAZIONE DEL COMPARATORE CHE VERIFICA SE IL VALORE DEGLI RPM SONO
+# UGUALI A 0 ############################################################
+.subckt UGUALE13 A12=Z1312 A11=Z1311 A10=Z1310 A9=Z139 A8=Z138 A7=Z137 A6=Z136 A5=Z135 A4=Z134 A3=Z133 A2=Z132 A1=Z131 A0=Z130 B12=RPM12 B11=RPM11 B10=RPM10 B9=RPM9 B8=RPM8 B7=RPM7 B6=RPM6 B5=RPM5 B4=RPM4 B3=RPM3 B2=RPM2 B1=RPM1 B0=RPM0 O=UGUALE
+#########################################################################
+
+# ISTANZIAZIONE DEL MULTIPLEXER CHE SELEZIONA TRA IL VALORE DEL MULTIPLEXER
+# A ESSO SUPERIORE E 00, SE VERIFICATA LA CONDIZIONE DELL'UGUALE A 0 ####
+.subckt MUX2 SEL=UGUALE A1=ZZ1 A0=ZZ0 B1=MAX1 B0=MAX0 O1=SA1 O0=SA0
+#########################################################################
+
+.end
+
+#########################################################################
+#######################   SORGENTI LIBRERIE   ###########################
+#########################################################################
+
+.search COSTANTI.blif
+.search COMPARATORI.blif
+.search MUX.blif
+.search SOMMATORE.blif
+.search REGISTRO.blif
